@@ -178,13 +178,6 @@ class NatureRemoAC(NatureRemoBase, ClimateEntity):
         """List of available swing modes."""
         return self._modes[self._remo_mode]["dir"]
 
-    @property
-    def device_state_attributes(self):
-        """Return device specific state attributes."""
-        return {
-            "previous_target_temperature": self._last_target_temperature,
-        }
-
     async def async_set_temperature(self, **kwargs):
         """Set new target temperature."""
         target_temp = kwargs.get(ATTR_TEMPERATURE)
